@@ -1,0 +1,32 @@
+act collectreviews,getreviewX,getreview3,timeout3,inviteadditionalreviewer,timeoutX,getreview1,timeout1,getreview2,timeout2,invitereviewers,reject,accept,decide,NEWTRACESTARTING;
+
+proc s8 = dist b1:Bool[if(b1,1,0)].(b1->collectreviews.s24);
+s24 = dist b2:Bool[if(b2,1,0)].(b2->decide.s1);
+s14 = dist b3:Bool[if(b3,1,0)].(b3->tau.s6);
+s22 = dist n4:Pos[if(n4==1,513/2000,if(n4==2,633/2500,if(n4==3,2597/10000,if(n4==4,1153/5000,0))))].((n4==1)->getreview3.s25+(n4==2)->timeout3.s25+(n4==3)->getreview1.s12+(n4==4)->timeout1.s12);
+s25 = dist b5:Bool[if(b5,4929/10000,5071/10000)].(b5->timeout1.s8 + !b5->getreview1.s8);
+s19 = dist n6:Pos[if(n6==1,359/10000,if(n6==2,521/1000,if(n6==3,4431/10000,0)))].((n6==1)->tau.s15+(n6==2)->inviteadditionalreviewer.s5+(n6==3)->getreviewX.s18);
+s15 = dist b7:Bool[if(b7,1,0)].(b7->timeoutX.s19);
+s16 = dist n8:Pos[if(n8==1,1443/10000,if(n8==2,129/2000,if(n8==3,1969/5000,if(n8==4,1987/5000,0))))].((n8==1)->tau.s14+(n8==2)->tau.s0+(n8==3)->tau.s23+(n8==4)->tau.s3);
+s23 = dist n9:Pos[if(n9==1,29/500,if(n9==2,457/10000,if(n9==3,8963/10000,0)))].((n9==1)->tau.s1+(n9==2)->tau.s10+(n9==3)->getreviewX.s16);
+s0 = dist b10:Bool[if(b10,1,0)].(b10->timeoutX.s4);
+s10 = dist b11:Bool[if(b11,1,0)].(b11->timeoutX.s5);
+s4 = dist n12:Pos[if(n12==1,1937/5000,if(n12==2,29/250,if(n12==3,999/10000,if(n12==4,3967/10000,0))))].((n12==1)->tau.s18+(n12==2)->tau.s14+(n12==3)->tau.s0+(n12==4)->tau.s5);
+s18 = dist n13:Pos[if(n13==1,27/2000,if(n13==2,1927/2000,if(n13==3,23/1000,0)))].((n13==1)->tau.s11+(n13==2)->inviteadditionalreviewer.s4+(n13==3)->tau.s19);
+s11 = dist b14:Bool[if(b14,1,0)].(b14->timeoutX.s18);
+s5 = dist n15:Pos[if(n15==1,4801/5000,if(n15==2,53/2000,if(n15==3,133/10000,0)))].((n15==1)->getreviewX.s4+(n15==2)->tau.s19+(n15==3)->tau.s10);
+s26 = dist n16:Pos[if(n16==1,171/1000,if(n16==2,799/5000,if(n16==3,413/2500,if(n16==4,863/5000,if(n16==5,17/100,if(n16==6,807/5000,0))))))].((n16==1)->getreview1.s7+(n16==2)->timeout1.s7+(n16==3)->getreview3.s21+(n16==4)->timeout3.s21+(n16==5)->timeout2.s22+(n16==6)->getreview2.s22);
+s7 = dist n17:Pos[if(n17==1,2649/10000,if(n17==2,559/2000,if(n17==3,2197/10000,if(n17==4,2359/10000,0))))].((n17==1)->getreview2.s12+(n17==2)->timeout2.s12+(n17==3)->getreview3.s20+(n17==4)->timeout3.s20);
+s12 = dist b18:Bool[if(b18,2621/5000,2379/5000)].(b18->getreview3.s8 + !b18->timeout3.s8);
+s6 = dist b19:Bool[if(b19,5051/10000,4949/10000)].(b19->reject.s13 + !b19->accept.s13);
+s1 = dist n20:Pos[if(n20==1,58/125,if(n20==2,1173/2500,if(n20==3,167/2500,0)))].((n20==1)->getreviewX.s3+(n20==2)->inviteadditionalreviewer.s23+(n20==3)->tau.s15);
+s3 = dist n21:Pos[if(n21==1,383/10000,if(n21==2,2269/2500,if(n21==3,541/10000,0)))].((n21==1)->tau.s11+(n21==2)->inviteadditionalreviewer.s16+(n21==3)->tau.s1);
+s21 = dist n22:Pos[if(n22==1,621/2500,if(n22==2,633/2500,if(n22==3,2547/10000,if(n22==4,2437/10000,0))))].((n22==1)->getreview2.s25+(n22==2)->timeout2.s25+(n22==3)->getreview1.s20+(n22==4)->timeout1.s20);
+s2 = dist b23:Bool[if(b23,1,0)].(b23->invitereviewers.s26);
+s20 = dist b24:Bool[if(b24,4657/10000,5343/10000)].(b24->getreview2.s8 + !b24->timeout2.s8);
+s13 = dist b25:Bool[if(b25,1,0)].(b25->tau.s13);
+s9 = dist b26:Bool[if(b26,1,0)].(b26->tau.s9);
+s17 = dist b27:Bool[if(b27,1,0)].(b27->tau.s17);
+s27 = dist b28:Bool[if(b28,1,0)].(b28->tau.s27);
+init s2;
+

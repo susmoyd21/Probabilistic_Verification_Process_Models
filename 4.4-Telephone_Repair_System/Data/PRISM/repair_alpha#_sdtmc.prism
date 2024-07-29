@@ -1,0 +1,117 @@
+
+ //Fitness of the model:99.1%
+ //Number of bad traces (unique bad traces) in the model:9 (7)
+ //Refer to the file repair_alpha#_ubt.txt to view them.
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..26] init 8;
+
+ [] s=1 -> 0.509607:(s'=12)+ 0.281793:(s'=13)+ 0.2086:(s'=14);
+ [] s=3 -> 0.464548:(s'=15)+ 0.535452:(s'=16);
+ [] s=6 -> 0.278689:(s'=17)+ 0.721311:(s'=18);
+ [] s=0 -> 0.003036:(s'=19)+ 0.996964:(s'=20);
+ [] s=5 -> 0.682836:(s'=21)+ 0.317164:(s'=22);
+ [] s=8 -> 1.0:(s'=23);
+ [] s=2 -> 1.0:(s'=24);
+ [] s=10 -> 0.791033:(s'=25)+ 0.208967:(s'=26);
+ [] s=12 -> 1.0:(s'=3);
+ [] s=13 -> 1.0:(s'=5);
+ [] s=14 -> 1.0:(s'=5);
+ [] s=15 -> 1.0:(s'=0);
+ [] s=16 -> 1.0:(s'=0);
+ [] s=17 -> 1.0:(s'=1);
+ [] s=18 -> 1.0:(s'=10);
+ [] s=19 -> 1.0:(s'=9);
+ [] s=20 -> 1.0:(s'=10);
+ [] s=21 -> 1.0:(s'=6);
+ [] s=22 -> 1.0:(s'=0);
+ [] s=23 -> 1.0:(s'=2);
+ [] s=24 -> 1.0:(s'=1);
+ [] s=25 -> 1.0:(s'=7);
+ [] s=26 -> 1.0:(s'=3);
+ [] s=4 -> 1.0:(s'=4);
+ [] s=7 -> 1.0:(s'=7);
+ [] s=9 -> 1.0:(s'=9);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=8);
+ label "bot"= (s=1)|(s=3)|(s=6)|(s=0)|(s=5)|(s=8)|(s=2)|(s=10)|(s=4)|(s=7)|(s=9);
+ label "InformUser"= (s=12)|(s=18)|(s=22);
+ label "ArchiveRepair"= (s=19)|(s=25);
+ label "RestartRepair"= (s=17)|(s=26);
+ label "RepairSimple"= (s=13)|(s=15);
+ label "RepairComplex"= (s=14)|(s=16);
+ label "TestRepair"= (s=20)|(s=21);
+ label "Register"= (s=23);
+ label "AnalyzeDefect"= (s=24);
+
+ //Rewards
+ rewards "original_step"
+(s=1)|(s=3)|(s=6)|(s=0)|(s=5)|(s=8)|(s=2)|(s=10)|(s=4)|(s=7)|(s=9): 1;
+ endrewards
+
+ rewards "InformUser"
+(s=12)|(s=18)|(s=22): 1;
+ endrewards
+
+ rewards "ArchiveRepair"
+(s=19)|(s=25): 1;
+ endrewards
+
+ rewards "RestartRepair"
+(s=17)|(s=26): 1;
+ endrewards
+
+ rewards "RepairSimple"
+(s=13)|(s=15): 1;
+ endrewards
+
+ rewards "RepairComplex"
+(s=14)|(s=16): 1;
+ endrewards
+
+ rewards "TestRepair"
+(s=20)|(s=21): 1;
+ endrewards
+
+ rewards "Register"
+(s=23): 1;
+ endrewards
+
+ rewards "AnalyzeDefect"
+(s=24): 1;
+ endrewards
+
+
+ //State Mapping
+ // s1 -> s1
+ // InformUser.s3 -> s12
+ // RepairSimple.s5 -> s13
+ // RepairComplex.s5 -> s14
+ // s3 -> s3
+ // RepairSimple.s0 -> s15
+ // RepairComplex.s0 -> s16
+ // s6 -> s6
+ // RestartRepair.s1 -> s17
+ // InformUser.s10 -> s18
+ // s0 -> s0
+ // ArchiveRepair.s9 -> s19
+ // TestRepair.s10 -> s20
+ // s5 -> s5
+ // TestRepair.s6 -> s21
+ // InformUser.s0 -> s22
+ // s8 -> s8
+ // Register.s2 -> s23
+ // s2 -> s2
+ // AnalyzeDefect.s1 -> s24
+ // s10 -> s10
+ // ArchiveRepair.s7 -> s25
+ // RestartRepair.s3 -> s26
+ // s4 -> s4
+ // s7 -> s7
+ // s9 -> s9

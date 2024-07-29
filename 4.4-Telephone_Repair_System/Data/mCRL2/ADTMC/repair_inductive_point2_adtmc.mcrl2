@@ -1,0 +1,13 @@
+act InformUser,RestartRepair,RepairSimple,RepairComplex,Register,TestRepair,AnalyzeDefect,ArchiveRepair;
+
+proc s8 = dist b1:Bool[if(b1,7213/10000,2787/10000)].(b1->InformUser.s5 + !b1->RestartRepair.s1);
+s5 = dist b2:Bool[if(b2,209/1000,791/1000)].(b2->RestartRepair.s2 + !b2->ArchiveRepair.s7);
+s2 = dist b3:Bool[if(b3,929/2000,1071/2000)].(b3->RepairSimple.s3 + !b3->RepairComplex.s3);
+s1 = dist n4:Pos[if(n4==1,1413/5000,if(n4==2,2083/10000,if(n4==3,1273/2500,0)))].((n4==1)->RepairSimple.s0+(n4==2)->RepairComplex.s0+(n4==3)->InformUser.s2);
+s0 = dist b5:Bool[if(b5,3159/10000,6841/10000)].(b5->InformUser.s3 + !b5->TestRepair.s8);
+s3 = dist b6:Bool[if(b6,1,0)].(b6->TestRepair.s5);
+s4 = dist b7:Bool[if(b7,1,0)].(b7->Register.s6);
+s6 = dist b8:Bool[if(b8,1,0)].(b8->AnalyzeDefect.s1);
+s7 = dist b9:Bool[if(b9,1,0)].(b9->tau.s7);
+init s4;
+

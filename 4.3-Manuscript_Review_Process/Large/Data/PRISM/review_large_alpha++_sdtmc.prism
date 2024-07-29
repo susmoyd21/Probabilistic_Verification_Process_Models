@@ -1,0 +1,183 @@
+
+ //Fitness of the model:100.0%
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..45] init 2;
+
+ [] s=10 -> 0.703316:(s'=14)+ 0.296684:(s'=15);
+ [] s=5 -> 1.0:(s'=16);
+ [] s=1 -> 0.270789:(s'=17)+ 0.218398:(s'=18)+ 0.227231:(s'=19)+ 0.283582:(s'=20);
+ [] s=11 -> 1.0:(s'=21);
+ [] s=8 -> 0.210259:(s'=22)+ 0.270504:(s'=23)+ 0.297047:(s'=24)+ 0.222189:(s'=25);
+ [] s=0 -> 0.699023:(s'=26)+ 0.300977:(s'=27);
+ [] s=9 -> 0.705656:(s'=28)+ 0.294344:(s'=29);
+ [] s=2 -> 1.0:(s'=30);
+ [] s=12 -> 0.1235:(s'=31)+ 0.2118:(s'=32)+ 0.1194:(s'=33)+ 0.217:(s'=34)+ 0.1192:(s'=35)+ 0.2091:(s'=36);
+ [] s=4 -> 0.222652:(s'=37)+ 0.282699:(s'=38)+ 0.214328:(s'=39)+ 0.280321:(s'=40);
+ [] s=7 -> 0.808135:(s'=41)+ 0.094628:(s'=42)+ 0.097237:(s'=43);
+ [] s=6 -> 0.495252:(s'=44)+ 0.504748:(s'=45);
+ [] s=14 -> 1.0:(s'=5);
+ [] s=15 -> 1.0:(s'=5);
+ [] s=16 -> 1.0:(s'=11);
+ [] s=17 -> 1.0:(s'=10);
+ [] s=18 -> 1.0:(s'=10);
+ [] s=19 -> 1.0:(s'=9);
+ [] s=20 -> 1.0:(s'=9);
+ [] s=21 -> 1.0:(s'=7);
+ [] s=22 -> 1.0:(s'=0);
+ [] s=23 -> 1.0:(s'=0);
+ [] s=24 -> 1.0:(s'=10);
+ [] s=25 -> 1.0:(s'=10);
+ [] s=26 -> 1.0:(s'=5);
+ [] s=27 -> 1.0:(s'=5);
+ [] s=28 -> 1.0:(s'=5);
+ [] s=29 -> 1.0:(s'=5);
+ [] s=30 -> 1.0:(s'=12);
+ [] s=31 -> 1.0:(s'=8);
+ [] s=32 -> 1.0:(s'=8);
+ [] s=33 -> 1.0:(s'=4);
+ [] s=34 -> 1.0:(s'=4);
+ [] s=35 -> 1.0:(s'=1);
+ [] s=36 -> 1.0:(s'=1);
+ [] s=37 -> 1.0:(s'=9);
+ [] s=38 -> 1.0:(s'=9);
+ [] s=39 -> 1.0:(s'=0);
+ [] s=40 -> 1.0:(s'=0);
+ [] s=41 -> 1.0:(s'=6);
+ [] s=42 -> 1.0:(s'=3);
+ [] s=43 -> 1.0:(s'=3);
+ [] s=44 -> 1.0:(s'=7);
+ [] s=45 -> 1.0:(s'=7);
+ [] s=3 -> 1.0:(s'=3);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=2);
+ label "bot"= (s=10)|(s=5)|(s=1)|(s=11)|(s=8)|(s=0)|(s=9)|(s=2)|(s=12)|(s=4)|(s=7)|(s=6)|(s=3);
+ label "timeout2"= (s=14)|(s=19)|(s=22)|(s=33);
+ label "getreview2"= (s=15)|(s=20)|(s=23)|(s=34);
+ label "getreview3"= (s=17)|(s=29)|(s=32)|(s=40);
+ label "timeout3"= (s=18)|(s=28)|(s=31)|(s=39);
+ label "collectreviews"= (s=16);
+ label "getreview1"= (s=24)|(s=27)|(s=36)|(s=38);
+ label "timeout1"= (s=25)|(s=26)|(s=35)|(s=37);
+ label "invitereviewers"= (s=30);
+ label "inviteadditionalreviewer"= (s=41);
+ label "decide"= (s=21);
+ label "timeoutX"= (s=44);
+ label "getreviewX"= (s=45);
+ label "reject"= (s=42);
+ label "accept"= (s=43);
+
+ //Rewards
+ rewards "original_step"
+(s=10)|(s=5)|(s=1)|(s=11)|(s=8)|(s=0)|(s=9)|(s=2)|(s=12)|(s=4)|(s=7)|(s=6)|(s=3): 1;
+ endrewards
+
+ rewards "timeout2"
+(s=14)|(s=19)|(s=22)|(s=33): 1;
+ endrewards
+
+ rewards "getreview2"
+(s=15)|(s=20)|(s=23)|(s=34): 1;
+ endrewards
+
+ rewards "getreview3"
+(s=17)|(s=29)|(s=32)|(s=40): 1;
+ endrewards
+
+ rewards "timeout3"
+(s=18)|(s=28)|(s=31)|(s=39): 1;
+ endrewards
+
+ rewards "collectreviews"
+(s=16): 1;
+ endrewards
+
+ rewards "getreview1"
+(s=24)|(s=27)|(s=36)|(s=38): 1;
+ endrewards
+
+ rewards "timeout1"
+(s=25)|(s=26)|(s=35)|(s=37): 1;
+ endrewards
+
+ rewards "invitereviewers"
+(s=30): 1;
+ endrewards
+
+ rewards "inviteadditionalreviewer"
+(s=41): 1;
+ endrewards
+
+ rewards "decide"
+(s=21): 1;
+ endrewards
+
+ rewards "timeoutX"
+(s=44): 1;
+ endrewards
+
+ rewards "getreviewX"
+(s=45): 1;
+ endrewards
+
+ rewards "reject"
+(s=42): 1;
+ endrewards
+
+ rewards "accept"
+(s=43): 1;
+ endrewards
+
+
+ //State Mapping
+ // s10 -> s10
+ // timeout2.s5 -> s14
+ // getreview2.s5 -> s15
+ // s5 -> s5
+ // collectreviews.s11 -> s16
+ // s1 -> s1
+ // getreview3.s10 -> s17
+ // timeout3.s10 -> s18
+ // timeout2.s9 -> s19
+ // getreview2.s9 -> s20
+ // s11 -> s11
+ // decide.s7 -> s21
+ // s8 -> s8
+ // timeout2.s0 -> s22
+ // getreview2.s0 -> s23
+ // getreview1.s10 -> s24
+ // timeout1.s10 -> s25
+ // s0 -> s0
+ // timeout1.s5 -> s26
+ // getreview1.s5 -> s27
+ // s9 -> s9
+ // timeout3.s5 -> s28
+ // getreview3.s5 -> s29
+ // s2 -> s2
+ // invitereviewers.s12 -> s30
+ // s12 -> s12
+ // timeout3.s8 -> s31
+ // getreview3.s8 -> s32
+ // timeout2.s4 -> s33
+ // getreview2.s4 -> s34
+ // timeout1.s1 -> s35
+ // getreview1.s1 -> s36
+ // s4 -> s4
+ // timeout1.s9 -> s37
+ // getreview1.s9 -> s38
+ // timeout3.s0 -> s39
+ // getreview3.s0 -> s40
+ // s7 -> s7
+ // inviteadditionalreviewer.s6 -> s41
+ // reject.s3 -> s42
+ // accept.s3 -> s43
+ // s6 -> s6
+ // timeoutX.s7 -> s44
+ // getreviewX.s7 -> s45
+ // s3 -> s3

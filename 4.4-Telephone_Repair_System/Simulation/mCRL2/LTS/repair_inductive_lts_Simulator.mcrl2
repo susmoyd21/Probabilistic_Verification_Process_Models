@@ -1,0 +1,23 @@
+act RestartRepair,InformUser,TestRepair,RepairComplex,RepairSimple,ArchiveRepair,Register,AnalyzeDefect,NEWTRACESTARTING;
+
+proc s4 = tau.s14 + tau.s1 + RestartRepair.s3 + InformUser.s11 + tau.s11 ;
+s14 = tau.s18 + InformUser.s18 + RestartRepair.s15 + TestRepair.s8 ;
+s13 = RestartRepair.s10 + ArchiveRepair.s9 ;
+s10 = RepairSimple.s13 + RepairComplex.s13 ;
+s18 = RestartRepair.s17 + TestRepair.s0 ;
+s15 = TestRepair.s6 + RepairSimple.s14 + RepairComplex.s14 + tau.s17 + InformUser.s17 ;
+s6 = tau.s2 + InformUser.s16 + tau.s16 + RepairComplex.s8 + RepairSimple.s8 + tau.s15 ;
+s16 = tau.s10 + RepairComplex.s0 + RepairSimple.s0 + tau.s17 ;
+s1 = InformUser.s13 + tau.s13 + RestartRepair.s2 ;
+s0 = tau.s18 + tau.s13 + RestartRepair.s16 ;
+s17 = TestRepair.s16 + RepairComplex.s18 + RepairSimple.s18 ;
+s8 = InformUser.s0 + tau.s0 + RestartRepair.s6 + tau.s1 + tau.s14 ;
+s2 = RepairComplex.s1 + RepairSimple.s1 + tau.s10 + InformUser.s10 ;
+s11 = tau.s13 + RestartRepair.s12 + tau.s18 ;
+s12 = tau.s10 + RepairSimple.s11 + RepairComplex.s11 + tau.s17 ;
+s3 = RepairSimple.s4 + RepairComplex.s4 + tau.s15 + InformUser.s12 + tau.s12 + tau.s2 ;
+s5 = Register.s7 ;
+s7 = AnalyzeDefect.s3 ;
+s9 = NEWTRACESTARTING.s5 ;
+init s5;
+

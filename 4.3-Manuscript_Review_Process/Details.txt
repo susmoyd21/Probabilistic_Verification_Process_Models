@@ -1,0 +1,9 @@
+LCOT=0 for Alpha
+
+LCOT=0 for Inductive
+
+end_event=['accept','reject'] for Alpha
+
+end_event=['accept','reject'] for Inductive
+
+

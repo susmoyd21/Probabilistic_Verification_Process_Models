@@ -1,0 +1,33 @@
+act collectreviews,getreviewX,getreview3,timeout3,inviteadditionalreviewer,timeoutX,getreview1,timeout1,getreview2,timeout2,invitereviewers,reject,accept,decide;
+
+proc s8 = collectreviews.s24 ;
+s24 = decide.s1 ;
+s17 = getreviewX.s14 + tau.s9 ;
+s14 = tau.s27 + tau.s6 + tau.s17 ;
+s22 = getreview3.s25 + timeout3.s25 + getreview1.s12 + timeout1.s12 ;
+s25 = timeout1.s8 + getreview1.s8 ;
+s19 = tau.s15 + inviteadditionalreviewer.s5 + tau.s9 + getreviewX.s18 ;
+s15 = timeoutX.s19 + getreviewX.s11 + inviteadditionalreviewer.s10 ;
+s16 = tau.s14 + tau.s0 + tau.s23 + tau.s3 ;
+s27 = tau.s9 + inviteadditionalreviewer.s14 ;
+s9 = getreviewX.s27 + inviteadditionalreviewer.s17 ;
+s23 = tau.s17 + tau.s1 + tau.s10 + getreviewX.s16 ;
+s0 = tau.s10 + timeoutX.s4 + tau.s11 ;
+s10 = timeoutX.s5 + tau.s15 + getreviewX.s0 ;
+s4 = tau.s18 + tau.s14 + tau.s0 + tau.s5 ;
+s18 = tau.s11 + inviteadditionalreviewer.s4 + tau.s19 + tau.s27 ;
+s11 = timeoutX.s18 + inviteadditionalreviewer.s0 + tau.s15 ;
+s5 = tau.s17 + getreviewX.s4 + tau.s19 + tau.s10 ;
+s26 = getreview1.s7 + timeout1.s7 + getreview3.s21 + timeout3.s21 + timeout2.s22 + getreview2.s22 ;
+s7 = getreview2.s12 + timeout2.s12 + getreview3.s20 + timeout3.s20 ;
+s12 = getreview3.s8 + timeout3.s8 ;
+s6 = reject.s13 + accept.s13 ;
+s1 = getreviewX.s3 + inviteadditionalreviewer.s23 + tau.s9 + tau.s15 ;
+s3 = tau.s27 + tau.s11 + inviteadditionalreviewer.s16 + tau.s1 ;
+s21 = getreview2.s25 + timeout2.s25 + getreview1.s20 + timeout1.s20 ;
+s2 = invitereviewers.s26 ;
+s13 = tau.s13 ;
+
+s20 = getreview2.s8 + timeout2.s8 ;
+init s2;
+

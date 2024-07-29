@@ -1,0 +1,15 @@
+act InformUser,ArchiveRepair,RestartRepair,RepairSimple,RepairComplex,TestRepair,Register,AnalyzeDefect;
+
+proc s1 = dist n1:Pos[if(n1==1,637/1250,if(n1==2,1409/5000,if(n1==3,1043/5000,0)))].((n1==1)->InformUser.s3+(n1==2)->RepairSimple.s5+(n1==3)->RepairComplex.s5);
+s3 = dist b2:Bool[if(b2,929/2000,1071/2000)].(b2->RepairSimple.s0 + !b2->RepairComplex.s0);
+s6 = dist b3:Bool[if(b3,2787/10000,7213/10000)].(b3->RestartRepair.s1 + !b3->InformUser.s10);
+s0 = dist b4:Bool[if(b4,3/1000,997/1000)].(b4->ArchiveRepair.s9 + !b4->TestRepair.s10);
+s5 = dist b5:Bool[if(b5,1707/2500,793/2500)].(b5->TestRepair.s6 + !b5->InformUser.s0);
+s8 = dist b6:Bool[if(b6,1,0)].(b6->Register.s2);
+s2 = dist b7:Bool[if(b7,1,0)].(b7->AnalyzeDefect.s1);
+s10 = dist b8:Bool[if(b8,791/1000,209/1000)].(b8->ArchiveRepair.s7 + !b8->RestartRepair.s3);
+s4 = dist b9:Bool[if(b9,1,0)].(b9->tau.s4);
+s7 = dist b10:Bool[if(b10,1,0)].(b10->tau.s7);
+s9 = dist b11:Bool[if(b11,1,0)].(b11->tau.s9);
+init s8;
+

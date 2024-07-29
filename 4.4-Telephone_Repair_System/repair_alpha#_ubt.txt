@@ -1,0 +1,20 @@
+
+ Total Traces in the file:	1000
+ Number of Good Traces in the file:	991
+ Number of Bad Traces in the file:	9
+ Number of Unique Bad Trace Types in the file:	7
+
+ Fitness of Model w.r.t. traces it can simulate:	99.1% 
+
+
+ Sl No. 	 Bad trace 	 Frequency
+
+1. Register->AnalyzeDefect->RepairComplex->ArchiveRepair	1
+2. Register->AnalyzeDefect->RepairSimple->TestRepair->RestartRepair->RepairSimple->TestRepair->ArchiveRepair	1
+3. Register->AnalyzeDefect->RepairSimple->InformUser->RestartRepair->RepairSimple->TestRepair->RestartRepair->RepairComplex->TestRepair->ArchiveRepair	1
+4. Register->AnalyzeDefect->RepairComplex->TestRepair->ArchiveRepair	3
+5. Register->AnalyzeDefect->RepairSimple->TestRepair->RestartRepair->RepairComplex->TestRepair->ArchiveRepair	1
+6. Register->AnalyzeDefect->RepairSimple->TestRepair->RestartRepair->RepairSimple->TestRepair->RestartRepair->RepairSimple->TestRepair->ArchiveRepair	1
+7. Register->AnalyzeDefect->RepairSimple->TestRepair->ArchiveRepair	1
+
+ Total Number of Unsimulated Traces:	0

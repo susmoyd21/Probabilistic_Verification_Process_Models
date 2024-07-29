@@ -1,0 +1,8 @@
+LCOT=0 for Alpha
+
+LCOT=0 for Inductive
+
+end_event=['ArchiveRepair'] for Alpha
+
+end_event=['ArchiveRepair'] for Inductive
+

@@ -1,0 +1,15 @@
+act InformUser,ArchiveRepair,RestartRepair,RepairSimple,RepairComplex,TestRepair,Register,AnalyzeDefect;
+
+proc s1 = InformUser.s3 + RepairSimple.s5 + RepairComplex.s5 ;
+s3 = ArchiveRepair.s4 + RepairSimple.s0 + RepairComplex.s0 ;
+s4 = RepairComplex.s9 + RepairSimple.s9 ;
+s6 = RestartRepair.s1 + InformUser.s10 ;
+s0 = ArchiveRepair.s9 + TestRepair.s10 ;
+s5 = TestRepair.s6 + InformUser.s0 ;
+s9 = TestRepair.s7 ;
+s8 = Register.s2 ;
+s2 = AnalyzeDefect.s1 ;
+s10 = ArchiveRepair.s7 + RestartRepair.s3 ;
+s7 = RestartRepair.s4 ;
+init s8;
+

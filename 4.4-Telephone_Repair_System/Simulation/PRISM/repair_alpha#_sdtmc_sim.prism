@@ -1,0 +1,116 @@
+
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..27] init 8;
+
+ [] s=1 -> 0.307669:(s'=12)+ 0.344785:(s'=13)+ 0.347546:(s'=14);
+ [] s=3 -> 0.268534:(s'=15)+ 0.371225:(s'=16)+ 0.360242:(s'=17);
+ [] s=6 -> 0.524345:(s'=18)+ 0.475655:(s'=19);
+ [] s=0 -> 0.506148:(s'=20)+ 0.493852:(s'=21);
+ [] s=5 -> 0.473195:(s'=22)+ 0.526805:(s'=23);
+ [] s=8 -> 1.0:(s'=24);
+ [] s=2 -> 1.0:(s'=25);
+ [] s=10 -> 0.533371:(s'=26)+ 0.466629:(s'=27);
+ [] s=12 -> 1.0:(s'=3);
+ [] s=13 -> 1.0:(s'=5);
+ [] s=14 -> 1.0:(s'=5);
+ [] s=15 -> 1.0:(s'=4);
+ [] s=16 -> 1.0:(s'=0);
+ [] s=17 -> 1.0:(s'=0);
+ [] s=18 -> 1.0:(s'=1);
+ [] s=19 -> 1.0:(s'=10);
+ [] s=20 -> 1.0:(s'=9);
+ [] s=21 -> 1.0:(s'=10);
+ [] s=22 -> 1.0:(s'=6);
+ [] s=23 -> 1.0:(s'=0);
+ [] s=24 -> 1.0:(s'=2);
+ [] s=25 -> 1.0:(s'=1);
+ [] s=26 -> 1.0:(s'=7);
+ [] s=27 -> 1.0:(s'=3);
+ [] s=4 -> 1.0:(s'=4);
+ [] s=9 -> 1.0:(s'=9);
+ [] s=7 -> 1.0:(s'=7);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=8);
+ label "bot"= (s=1)|(s=3)|(s=6)|(s=0)|(s=5)|(s=8)|(s=2)|(s=10)|(s=4)|(s=9)|(s=7);
+ label "InformUser"= (s=12)|(s=19)|(s=23);
+ label "ArchiveRepair"= (s=15)|(s=20)|(s=26);
+ label "RestartRepair"= (s=18)|(s=27);
+ label "RepairSimple"= (s=13)|(s=16);
+ label "RepairComplex"= (s=14)|(s=17);
+ label "TestRepair"= (s=21)|(s=22);
+ label "Register"= (s=24);
+ label "AnalyzeDefect"= (s=25);
+
+ //Rewards
+ rewards "original_step"
+(s=1)|(s=3)|(s=6)|(s=0)|(s=5)|(s=8)|(s=2)|(s=10)|(s=4)|(s=9)|(s=7): 1;
+ endrewards
+
+ rewards "InformUser"
+(s=12)|(s=19)|(s=23): 1;
+ endrewards
+
+ rewards "ArchiveRepair"
+(s=15)|(s=20)|(s=26): 1;
+ endrewards
+
+ rewards "RestartRepair"
+(s=18)|(s=27): 1;
+ endrewards
+
+ rewards "RepairSimple"
+(s=13)|(s=16): 1;
+ endrewards
+
+ rewards "RepairComplex"
+(s=14)|(s=17): 1;
+ endrewards
+
+ rewards "TestRepair"
+(s=21)|(s=22): 1;
+ endrewards
+
+ rewards "Register"
+(s=24): 1;
+ endrewards
+
+ rewards "AnalyzeDefect"
+(s=25): 1;
+ endrewards
+
+
+ //State Mapping
+ // s1 -> s1
+ // InformUser.s3 -> s12
+ // RepairSimple.s5 -> s13
+ // RepairComplex.s5 -> s14
+ // s3 -> s3
+ // ArchiveRepair.s4 -> s15
+ // RepairSimple.s0 -> s16
+ // RepairComplex.s0 -> s17
+ // s6 -> s6
+ // RestartRepair.s1 -> s18
+ // InformUser.s10 -> s19
+ // s0 -> s0
+ // ArchiveRepair.s9 -> s20
+ // TestRepair.s10 -> s21
+ // s5 -> s5
+ // TestRepair.s6 -> s22
+ // InformUser.s0 -> s23
+ // s8 -> s8
+ // Register.s2 -> s24
+ // s2 -> s2
+ // AnalyzeDefect.s1 -> s25
+ // s10 -> s10
+ // ArchiveRepair.s7 -> s26
+ // RestartRepair.s3 -> s27
+ // s4 -> s4
+ // s9 -> s9
+ // s7 -> s7

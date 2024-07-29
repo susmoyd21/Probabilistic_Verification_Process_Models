@@ -1,0 +1,11 @@
+P=? [ (("RepairSimple")|(!("RepairComplex"))) U ((!("bot"))&("ArchiveRepair"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (("RepairComplex")|(!("RepairSimple"))) U ((!("bot"))&("ArchiveRepair"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("TestRepair")) U ((!("bot"))&("InformUser")&(true U "ArchiveRepair")) ]
+
+P=? [ true U ("RestartRepair"&(true U "ArchiveRepair")) ]
+
+filter(max,P=? [ (X("bot" U ("TestRepair"&(X("bot"U"ArchiveRepair"))))) ],"RepairComplex")
+
+filter(avg,P=? [ (X("bot" U "ArchiveRepair")) ],"TestRepair")

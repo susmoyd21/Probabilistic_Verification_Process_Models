@@ -1,0 +1,146 @@
+
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..42] init 5;
+
+ [] s=4 -> 0.137107:(s'=14)+ 0.212738:(s'=1)+ 0.510836:(s'=20)+ 0.139319:(s'=21);
+ [] s=14 -> 1.0:(s'=22);
+ [] s=13 -> 1.0:(s'=23);
+ [] s=18 -> 1.0:(s'=24);
+ [] s=15 -> 1.0:(s'=25);
+ [] s=6 -> 0.023224:(s'=26)+ 0.431889:(s'=27)+ 0.445754:(s'=28)+ 0.099133:(s'=15);
+ [] s=16 -> 0.44677:(s'=29)+ 0.452183:(s'=30)+ 0.101047:(s'=17);
+ [] s=1 -> 1.0:(s'=13);
+ [] s=0 -> 0.134085:(s'=18)+ 0.40486:(s'=13)+ 0.461054:(s'=31);
+ [] s=17 -> 1.0:(s'=32);
+ [] s=8 -> 0.027564:(s'=33)+ 0.241983:(s'=0)+ 0.565863:(s'=34)+ 0.164591:(s'=14);
+ [] s=11 -> 0.297421:(s'=13)+ 0.544891:(s'=35)+ 0.157689:(s'=18);
+ [] s=12 -> 0.444363:(s'=36)+ 0.446193:(s'=37)+ 0.109444:(s'=17);
+ [] s=3 -> 0.363531:(s'=38)+ 0.38403:(s'=39)+ 0.076707:(s'=15)+ 0.175732:(s'=40);
+ [] s=5 -> 1.0:(s'=41);
+ [] s=7 -> 1.0:(s'=42);
+ [] s=20 -> 1.0:(s'=3);
+ [] s=21 -> 1.0:(s'=11);
+ [] s=22 -> 1.0:(s'=8);
+ [] s=23 -> 1.0:(s'=9);
+ [] s=24 -> 1.0:(s'=0);
+ [] s=25 -> 1.0:(s'=6);
+ [] s=26 -> 1.0:(s'=16);
+ [] s=27 -> 1.0:(s'=8);
+ [] s=28 -> 1.0:(s'=8);
+ [] s=29 -> 1.0:(s'=0);
+ [] s=30 -> 1.0:(s'=0);
+ [] s=31 -> 1.0:(s'=16);
+ [] s=32 -> 1.0:(s'=16);
+ [] s=33 -> 1.0:(s'=0);
+ [] s=34 -> 1.0:(s'=6);
+ [] s=35 -> 1.0:(s'=12);
+ [] s=36 -> 1.0:(s'=11);
+ [] s=37 -> 1.0:(s'=11);
+ [] s=38 -> 1.0:(s'=4);
+ [] s=39 -> 1.0:(s'=4);
+ [] s=40 -> 1.0:(s'=12);
+ [] s=41 -> 1.0:(s'=7);
+ [] s=42 -> 1.0:(s'=3);
+ [] s=2 -> 1.0:(s'=2);
+ [] s=9 -> 1.0:(s'=9);
+ [] s=10 -> 1.0:(s'=10);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=5);
+ label "bot"= (s=4)|(s=14)|(s=13)|(s=18)|(s=15)|(s=6)|(s=16)|(s=1)|(s=0)|(s=17)|(s=8)|(s=11)|(s=12)|(s=3)|(s=5)|(s=7)|(s=2)|(s=9)|(s=10);
+ label "RestartRepair"= (s=20)|(s=31)|(s=34)|(s=35);
+ label "InformUser"= (s=21)|(s=26)|(s=33)|(s=40);
+ label "TestRepair"= (s=22)|(s=24)|(s=25)|(s=32);
+ label "RepairComplex"= (s=27)|(s=29)|(s=37)|(s=39);
+ label "RepairSimple"= (s=28)|(s=30)|(s=36)|(s=38);
+ label "ArchiveRepair"= (s=23);
+ label "Register"= (s=41);
+ label "AnalyzeDefect"= (s=42);
+
+ //Rewards
+ rewards "original_step"
+(s=4)|(s=14)|(s=13)|(s=18)|(s=15)|(s=6)|(s=16)|(s=1)|(s=0)|(s=17)|(s=8)|(s=11)|(s=12)|(s=3)|(s=5)|(s=7)|(s=2)|(s=9)|(s=10): 1;
+ endrewards
+
+ rewards "RestartRepair"
+(s=20)|(s=31)|(s=34)|(s=35): 1;
+ endrewards
+
+ rewards "InformUser"
+(s=21)|(s=26)|(s=33)|(s=40): 1;
+ endrewards
+
+ rewards "TestRepair"
+(s=22)|(s=24)|(s=25)|(s=32): 1;
+ endrewards
+
+ rewards "RepairComplex"
+(s=27)|(s=29)|(s=37)|(s=39): 1;
+ endrewards
+
+ rewards "RepairSimple"
+(s=28)|(s=30)|(s=36)|(s=38): 1;
+ endrewards
+
+ rewards "ArchiveRepair"
+(s=23): 1;
+ endrewards
+
+ rewards "Register"
+(s=41): 1;
+ endrewards
+
+ rewards "AnalyzeDefect"
+(s=42): 1;
+ endrewards
+
+
+ //State Mapping
+ // s4 -> s4
+ // RestartRepair.s3 -> s20
+ // InformUser.s11 -> s21
+ // s14 -> s14
+ // TestRepair.s8 -> s22
+ // s13 -> s13
+ // ArchiveRepair.s9 -> s23
+ // s18 -> s18
+ // TestRepair.s0 -> s24
+ // s15 -> s15
+ // TestRepair.s6 -> s25
+ // s6 -> s6
+ // InformUser.s16 -> s26
+ // RepairComplex.s8 -> s27
+ // RepairSimple.s8 -> s28
+ // s16 -> s16
+ // RepairComplex.s0 -> s29
+ // RepairSimple.s0 -> s30
+ // s1 -> s1
+ // s0 -> s0
+ // RestartRepair.s16 -> s31
+ // s17 -> s17
+ // TestRepair.s16 -> s32
+ // s8 -> s8
+ // InformUser.s0 -> s33
+ // RestartRepair.s6 -> s34
+ // s11 -> s11
+ // RestartRepair.s12 -> s35
+ // s12 -> s12
+ // RepairSimple.s11 -> s36
+ // RepairComplex.s11 -> s37
+ // s3 -> s3
+ // RepairSimple.s4 -> s38
+ // RepairComplex.s4 -> s39
+ // InformUser.s12 -> s40
+ // s5 -> s5
+ // Register.s7 -> s41
+ // s7 -> s7
+ // AnalyzeDefect.s3 -> s42
+ // s2 -> s2
+ // s9 -> s9
+ // s10 -> s10

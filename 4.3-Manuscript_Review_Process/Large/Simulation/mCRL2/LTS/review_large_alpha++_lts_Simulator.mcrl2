@@ -1,0 +1,17 @@
+act timeout2,getreview2,getreview3,timeout3,collectreviews,getreview1,timeout1,invitereviewers,inviteadditionalreviewer,decide,timeoutX,getreviewX,reject,accept,NEWTRACESTARTING;
+
+proc s10 = timeout2.s5 + getreview2.s5 ;
+s5 = collectreviews.s11 ;
+s1 = getreview3.s10 + timeout3.s10 + timeout2.s9 + getreview2.s9 ;
+s11 = decide.s7 ;
+s8 = timeout2.s0 + getreview2.s0 + getreview1.s10 + timeout1.s10 ;
+s0 = timeout1.s5 + getreview1.s5 ;
+s9 = timeout3.s5 + getreview3.s5 ;
+s2 = invitereviewers.s12 ;
+s12 = timeout3.s8 + getreview3.s8 + timeout2.s4 + getreview2.s4 + timeout1.s1 + getreview1.s1 ;
+s4 = timeout1.s9 + getreview1.s9 + timeout3.s0 + getreview3.s0 ;
+s7 = inviteadditionalreviewer.s6 + reject.s3 + accept.s3 ;
+s6 = timeoutX.s7 + getreviewX.s7 ;
+s3 = NEWTRACESTARTING.s2 ;
+init s2;
+

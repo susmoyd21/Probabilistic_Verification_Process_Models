@@ -1,0 +1,38 @@
+
+ Total Traces in the file:	10000
+ Number of Good Traces in the file:	9368
+ Number of Bad Traces in the file:	632
+ Number of Unique Bad Trace Types in the file:	25
+
+ Fitness of Model w.r.t. traces it can simulate:	93.68% 
+
+
+ Sl No. 	 Bad trace 	 Frequency
+
+1. invitereviewers->getreview3->getreview1->getreview2->collectreviews->decide->accept	31
+2. invitereviewers->getreview1->getreview3->getreview2->collectreviews->decide->accept	25
+3. invitereviewers->getreview1->getreview3->timeout2->collectreviews->decide->accept	44
+4. invitereviewers->getreview1->getreview2->getreview3->collectreviews->decide->accept	27
+5. invitereviewers->getreview1->getreview3->timeout2->collectreviews->decide->reject	61
+6. invitereviewers->getreview3->getreview1->timeout2->collectreviews->decide->reject	55
+7. invitereviewers->getreview1->timeout2->getreview3->collectreviews->decide->reject	22
+8. invitereviewers->getreview2->getreview3->getreview1->collectreviews->decide->reject	23
+9. invitereviewers->getreview2->getreview1->getreview3->collectreviews->decide->accept	31
+10. invitereviewers->getreview1->getreview3->getreview2->collectreviews->decide->reject	26
+11. invitereviewers->timeout2->getreview3->getreview1->collectreviews->decide->reject	16
+12. invitereviewers->getreview3->getreview1->getreview2->collectreviews->decide->reject	26
+13. invitereviewers->getreview1->getreview2->getreview3->collectreviews->decide->reject	21
+14. invitereviewers->getreview3->getreview2->getreview1->collectreviews->decide->accept	27
+15. invitereviewers->getreview3->timeout2->getreview1->collectreviews->decide->accept	21
+16. invitereviewers->getreview2->getreview3->getreview1->collectreviews->decide->accept	30
+17. invitereviewers->getreview3->getreview1->timeout2->collectreviews->decide->accept	54
+18. invitereviewers->timeout2->getreview1->getreview3->collectreviews->decide->accept	13
+19. invitereviewers->getreview2->getreview1->getreview3->collectreviews->decide->reject	21
+20. invitereviewers->getreview1->timeout2->getreview3->collectreviews->decide->accept	12
+21. invitereviewers->timeout2->getreview1->getreview3->collectreviews->decide->reject	5
+22. invitereviewers->timeout2->getreview3->getreview1->collectreviews->decide->accept	12
+23. invitereviewers->getreview3->getreview2->getreview1->collectreviews->decide->reject	19
+24. invitereviewers->getreview3->timeout2->getreview1->collectreviews->decide->reject	9
+25. invitereviewers->getreview2->getreview3->getreview1->collectreviews->decide->inviteadditionalreviewer->timeoutX->reject	1
+
+ Total Number of Unsimulated Traces:	0

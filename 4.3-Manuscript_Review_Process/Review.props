@@ -1,0 +1,16 @@
+P=? [ true U ((!("bot"))&("accept"|"reject"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("timeout1"|"timeout2"|"timeout3")) U ((!("bot"))&("accept"|"reject"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("getreview1"|"getreview2"|"getreview3")) U ((!("bot"))&("accept"|"reject"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (true) U (("inviteadditionalreviewer")&((true U ("accept"|"reject")))) ]
+
+P=? [ true U ((!("bot"))&("accept"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ true U ((!("bot"))&("reject"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("inviteadditionalreviewer")) U ((!("bot"))&("accept"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("inviteadditionalreviewer")) U ((!("bot"))&("reject"))&(P>=1 [ X ("bot") ]) ]
+
