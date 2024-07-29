@@ -1,0 +1,21 @@
+Loan PARTIAL
+
+LCOT=0 for Alpha
+
+LCOT=0 for Inductive
+
+end_event=['senddecisionemail'] for Alpha
+
+end_event=['senddecisionemail'] for Inductive
+
+
+Loan COMPLETE
+
+LCOT=1 for Alpha
+
+LCOT=1 for Inductive
+
+end_event=['senddecisionemailcomplete'] for Alpha
+
+end_event=['senddecisionemailcomplete'] for Inductive
+

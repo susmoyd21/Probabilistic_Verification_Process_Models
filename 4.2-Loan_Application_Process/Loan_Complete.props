@@ -1,0 +1,20 @@
+P=? [ true U ((!("bot"))&("senddecisionemail"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("checkcredit")) U ((!("bot"))&("senddecisionemail"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("checksystem")) U ((!("bot"))&("senddecisionemail"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ ((!(X ("checkcredit")))|(X ("checkcredit"&(X (("bot" U "calculatecapacity")))))) U ("senddecisionemail") ]
+
+P=? [ (true U ("checkcredit"&(X ("bot" U ("calculatecapacity"&(true U "senddecisionemail")))))) ]
+
+P=? [ !(("checkcredit")|("checksystem")) U ("calculatecapacity") ]
+
+P=? [ true U ((!("bot"))&("accept"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ true U ((!("bot"))&("reject"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ !(("checkcredit")|("checksystem")) U ("calculatecapacity"&(true U "accept")) ]
+
+P=? [ !(("checkcredit")|("checksystem")) U ("calculatecapacity"&(true U "reject")) ]
+

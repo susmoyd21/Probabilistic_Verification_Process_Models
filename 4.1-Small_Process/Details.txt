@@ -1,0 +1,8 @@
+LCOT=0 for Alpha
+
+LCOT=0 for Inductive
+
+end_event=['f'] for Alpha
+
+end_event=['f'] for Inductive
+

@@ -1,0 +1,11 @@
+P=? [ true U ((!("bot"))&("f"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (!("b")) U ((!("bot"))&("f"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ ((!(X ("b")))|(X ("b"&(X (("bot"U"d")))))) U ("f") ]
+
+P=? [ (true U ("b"&(X("bot"U("d"&(true U "f")))))) ]
+
+filter(avg, P=? [ (X (("bot") U ("f"))) ], "d")
+
+

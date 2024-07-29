@@ -1,0 +1,16 @@
+
+ Total Traces in the file:	100
+ Number of Good Traces in the file:	90
+ Number of Bad Traces in the file:	10
+ Number of Unique Bad Trace Types in the file:	3
+
+ Fitness of Model w.r.t. traces it can simulate:	90.0% 
+
+
+ Sl No. 	 Bad trace 	 Frequency
+
+1. registerapplicationcomplete->checkcreditcomplete->calculatecapacitycomplete->rejectcomplete->senddecisionemailcomplete	8
+2. registerapplicationcomplete->calculatecapacitycomplete->checkcreditcomplete->acceptcomplete->senddecisionemailcomplete	1
+3. registerapplicationcomplete->calculatecapacitycomplete->checkcreditcomplete->rejectcomplete->senddecisionemailcomplete	1
+
+ Total Number of Unsimulated Traces:	0

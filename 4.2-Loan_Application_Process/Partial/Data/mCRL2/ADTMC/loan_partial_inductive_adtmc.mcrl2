@@ -1,0 +1,16 @@
+act checksystem,checkcredit,accept,reject,calculatecapacity,senddecisionemail,registerapplication;
+
+proc s3 = dist n1:Pos[if(n1==1,129/2000,if(n1==2,323/10000,if(n1==3,1129/1250,0)))].((n1==1)->checksystem.s4+(n1==2)->calculatecapacity.s0+(n1==3)->checkcredit.s1);
+s4 = dist b2:Bool[if(b2,1,0)].(b2->calculatecapacity.s7);
+s0 = dist b3:Bool[if(b3,1,0)].(b3->checksystem.s7);
+s9 = dist b4:Bool[if(b4,1,0)].(b4->checksystem.s10);
+s2 = dist b5:Bool[if(b5,2903/10000,7097/10000)].(b5->accept.s5 + !b5->reject.s5);
+s5 = dist b6:Bool[if(b6,1,0)].(b6->senddecisionemail.s11);
+s1 = dist b7:Bool[if(b7,7857/10000,2143/10000)].(b7->calculatecapacity.s9 + !b7->checksystem.s8);
+s7 = dist b8:Bool[if(b8,1,0)].(b8->checkcredit.s10);
+s10 = dist b9:Bool[if(b9,1,0)].(b9->tau.s2);
+s8 = dist b10:Bool[if(b10,1,0)].(b10->calculatecapacity.s10);
+s6 = dist b11:Bool[if(b11,1,0)].(b11->registerapplication.s3);
+s11 = dist b12:Bool[if(b12,1,0)].(b12->tau.s11);
+init s6;
+

@@ -1,0 +1,18 @@
+act d,c,b,e,f,a,NEWTRACESTARTING;
+
+proc s1 = dist b1:Bool[if(b1,5041/10000,4959/10000)].(b1->d.s6 + !b1->c.s11);
+s6 = dist b2:Bool[if(b2,1,0)].(b2->c.s7);
+s12 = dist b3:Bool[if(b3,1247/2500,1253/2500)].(b3->d.s10 + !b3->b.s11);
+s10 = dist b4:Bool[if(b4,1,0)].(b4->b.s7);
+s3 = dist b5:Bool[if(b5,2481/5000,2519/5000)].(b5->c.s12 + !b5->b.s1);
+s9 = dist b6:Bool[if(b6,1269/2500,1231/2500)].(b6->c.s10 + !b6->b.s6);
+s2 = dist n7:Pos[if(n7==1,4473/10000,if(n7==2,111/500,if(n7==3,3307/10000,0)))].((n7==1)->d.s5+(n7==2)->tau.s3+(n7==3)->e.s4);
+s5 = dist b8:Bool[if(b8,973/2500,1527/2500)].(b8->e.s0 + !b8->tau.s9);
+s11 = dist b9:Bool[if(b9,1,0)].(b9->d.s7);
+s0 = dist b10:Bool[if(b10,1,0)].(b10->f.s13);
+s4 = dist b11:Bool[if(b11,1,0)].(b11->d.s0);
+s8 = dist b12:Bool[if(b12,1,0)].(b12->a.s2);
+s7 = dist b13:Bool[if(b13,1,0)].(b13->tau.s0);
+s13 = dist b14:Bool[if(b14,1,0)].(b14->tau.s13);
+init s8;
+

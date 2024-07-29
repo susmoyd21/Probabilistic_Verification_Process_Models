@@ -1,0 +1,16 @@
+act calculatecapacitycomplete,checksystemcomplete,registerapplicationcomplete,acceptcomplete,rejectcomplete,checkcreditcomplete,senddecisionemailcomplete;
+
+proc s0 = dist n1:Pos[if(n1==1,111/5000,if(n1==2,9111/10000,if(n1==3,667/10000,0)))].((n1==1)->calculatecapacitycomplete.s11+(n1==2)->checkcreditcomplete.s10+(n1==3)->checksystemcomplete.s2);
+s11 = dist b2:Bool[if(b2,1,0)].(b2->checksystemcomplete.s1);
+s1 = dist b3:Bool[if(b3,1,0)].(b3->checkcreditcomplete.s9);
+s4 = dist b4:Bool[if(b4,1,0)].(b4->registerapplicationcomplete.s0);
+s5 = dist b5:Bool[if(b5,2111/10000,7889/10000)].(b5->acceptcomplete.s7 + !b5->rejectcomplete.s7);
+s7 = dist b6:Bool[if(b6,1,0)].(b6->senddecisionemailcomplete.s6);
+s9 = dist b7:Bool[if(b7,1,0)].(b7->tau.s5);
+s3 = dist b8:Bool[if(b8,1,0)].(b8->calculatecapacitycomplete.s9);
+s10 = dist b9:Bool[if(b9,2317/5000,2683/5000)].(b9->checksystemcomplete.s3 + !b9->calculatecapacitycomplete.s8);
+s2 = dist b10:Bool[if(b10,3333/10000,6667/10000)].(b10->checkcreditcomplete.s3 + !b10->calculatecapacitycomplete.s1);
+s8 = dist b11:Bool[if(b11,1,0)].(b11->checksystemcomplete.s9);
+s6 = dist b12:Bool[if(b12,1,0)].(b12->tau.s6);
+init s4;
+

@@ -1,0 +1,110 @@
+
+ //Fitness of the model:100.0%
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..26] init 9;
+
+ [] s=3 -> 1.0:(s'=13);
+ [] s=10 -> 1.0:(s'=14);
+ [] s=4 -> 1.0:(s'=15);
+ [] s=5 -> 1.0:(s'=8);
+ [] s=0 -> 0.064516:(s'=16)+ 0.903226:(s'=17)+ 0.032258:(s'=18);
+ [] s=6 -> 1.0:(s'=19);
+ [] s=7 -> 0.214286:(s'=20)+ 0.785714:(s'=21);
+ [] s=11 -> 1.0:(s'=22);
+ [] s=8 -> 0.290323:(s'=23)+ 0.709677:(s'=24);
+ [] s=2 -> 1.0:(s'=25);
+ [] s=9 -> 1.0:(s'=26);
+ [] s=13 -> 1.0:(s'=10);
+ [] s=14 -> 1.0:(s'=5);
+ [] s=15 -> 1.0:(s'=5);
+ [] s=16 -> 1.0:(s'=6);
+ [] s=17 -> 1.0:(s'=7);
+ [] s=18 -> 1.0:(s'=3);
+ [] s=19 -> 1.0:(s'=10);
+ [] s=20 -> 1.0:(s'=11);
+ [] s=21 -> 1.0:(s'=4);
+ [] s=22 -> 1.0:(s'=5);
+ [] s=23 -> 1.0:(s'=2);
+ [] s=24 -> 1.0:(s'=2);
+ [] s=25 -> 1.0:(s'=1);
+ [] s=26 -> 1.0:(s'=0);
+ [] s=1 -> 1.0:(s'=1);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=9);
+ label "bot"= (s=3)|(s=10)|(s=4)|(s=5)|(s=0)|(s=6)|(s=7)|(s=11)|(s=8)|(s=2)|(s=9)|(s=1);
+ label "checksystem"= (s=13)|(s=15)|(s=16)|(s=20);
+ label "checkcredit"= (s=14)|(s=17);
+ label "calculatecapacity"= (s=18)|(s=19)|(s=21)|(s=22);
+ label "accept"= (s=23);
+ label "reject"= (s=24);
+ label "registerapplication"= (s=26);
+ label "senddecisionemail"= (s=25);
+
+ //Rewards
+ rewards "original_step"
+(s=3)|(s=10)|(s=4)|(s=5)|(s=0)|(s=6)|(s=7)|(s=11)|(s=8)|(s=2)|(s=9)|(s=1): 1;
+ endrewards
+
+ rewards "checksystem"
+(s=13)|(s=15)|(s=16)|(s=20): 1;
+ endrewards
+
+ rewards "checkcredit"
+(s=14)|(s=17): 1;
+ endrewards
+
+ rewards "calculatecapacity"
+(s=18)|(s=19)|(s=21)|(s=22): 1;
+ endrewards
+
+ rewards "accept"
+(s=23): 1;
+ endrewards
+
+ rewards "reject"
+(s=24): 1;
+ endrewards
+
+ rewards "registerapplication"
+(s=26): 1;
+ endrewards
+
+ rewards "senddecisionemail"
+(s=25): 1;
+ endrewards
+
+
+ //State Mapping
+ // s3 -> s3
+ // checksystem.s10 -> s13
+ // s10 -> s10
+ // checkcredit.s5 -> s14
+ // s4 -> s4
+ // checksystem.s5 -> s15
+ // s5 -> s5
+ // s0 -> s0
+ // checksystem.s6 -> s16
+ // checkcredit.s7 -> s17
+ // calculatecapacity.s3 -> s18
+ // s6 -> s6
+ // calculatecapacity.s10 -> s19
+ // s7 -> s7
+ // checksystem.s11 -> s20
+ // calculatecapacity.s4 -> s21
+ // s11 -> s11
+ // calculatecapacity.s5 -> s22
+ // s8 -> s8
+ // accept.s2 -> s23
+ // reject.s2 -> s24
+ // s2 -> s2
+ // senddecisionemail.s1 -> s25
+ // s9 -> s9
+ // registerapplication.s0 -> s26
+ // s1 -> s1

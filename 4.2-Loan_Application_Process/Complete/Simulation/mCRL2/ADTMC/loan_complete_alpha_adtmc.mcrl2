@@ -1,0 +1,15 @@
+act checksystemcomplete,calculatecapacitycomplete,checkcreditcomplete,rejectcomplete,acceptcomplete,senddecisionemailcomplete,registerapplicationcomplete,NEWTRACESTARTING;
+
+proc s9 = dist b1:Bool[if(b1,2521/5000,2479/5000)].(b1->checksystemcomplete.s6 + !b1->checkcreditcomplete.s7);
+s6 = dist b2:Bool[if(b2,1,0)].(b2->checkcreditcomplete.s2);
+s10 = dist n3:Pos[if(n3==1,331/1000,if(n3==2,3377/10000,if(n3==3,3313/10000,0)))].((n3==1)->checksystemcomplete.s5+(n3==2)->checkcreditcomplete.s8+(n3==3)->calculatecapacitycomplete.s9);
+s5 = dist b4:Bool[if(b4,5169/10000,4831/10000)].(b4->checkcreditcomplete.s1 + !b4->calculatecapacitycomplete.s6);
+s1 = dist b5:Bool[if(b5,1,0)].(b5->calculatecapacitycomplete.s2);
+s2 = dist b6:Bool[if(b6,5021/10000,4979/10000)].(b6->rejectcomplete.s0 + !b6->acceptcomplete.s0);
+s8 = dist b7:Bool[if(b7,507/1000,493/1000)].(b7->checksystemcomplete.s1 + !b7->calculatecapacitycomplete.s7);
+s7 = dist b8:Bool[if(b8,1,0)].(b8->checksystemcomplete.s2);
+s0 = dist b9:Bool[if(b9,1,0)].(b9->senddecisionemailcomplete.s4);
+s3 = dist b10:Bool[if(b10,1,0)].(b10->registerapplicationcomplete.s10);
+s4 = dist b11:Bool[if(b11,1,0)].(b11->tau.s4);
+init s3;
+

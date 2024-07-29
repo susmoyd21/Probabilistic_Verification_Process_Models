@@ -1,0 +1,21 @@
+act calculatecapacity,accept,checkcredit,checksystem,senddecisionemail,registerapplication,reject,NEWTRACESTARTING;
+
+proc s15 = calculatecapacity.s16 +  NEWTRACESTARTING.s9 ;
+s2 = accept.s1 + checkcredit.s4 ;
+s1 = checkcredit.s12 + senddecisionemail.s14 ;
+s12 = senddecisionemail.s7 ;
+s5 = checksystem.s13 + calculatecapacity.s8 + checkcredit.s10 ;
+s13 = calculatecapacity.s2 + checkcredit.s3 ;
+s3 = calculatecapacity.s4 + reject.s0 ;
+s4 = accept.s12 + reject.s6 ;
+s0 = senddecisionemail.s15 + calculatecapacity.s6 ;
+s8 = checksystem.s2 + checkcredit.s11 ;
+s9 = registerapplication.s5 ;
+s10 = checksystem.s3 + calculatecapacity.s11 ;
+s11 = checksystem.s4 ;
+s6 = senddecisionemail.s16 ;
+s14 = checkcredit.s7 +  NEWTRACESTARTING.s9 ;
+s16 = NEWTRACESTARTING.s9 ;
+s7 = NEWTRACESTARTING.s9 ;
+init s9;
+

@@ -1,0 +1,122 @@
+
+ //Fitness of the model:100.0%
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..32] init 9;
+
+ [] s=2 -> 1.0:(s'=18);
+ [] s=12 -> 1.0:(s'=19);
+ [] s=5 -> 0.064516:(s'=20)+ 0.032258:(s'=21)+ 0.903226:(s'=22);
+ [] s=13 -> 1.0:(s'=23);
+ [] s=3 -> 1.0:(s'=24);
+ [] s=4 -> 0.290323:(s'=25)+ 0.709677:(s'=26);
+ [] s=8 -> 1.0:(s'=27);
+ [] s=9 -> 1.0:(s'=28);
+ [] s=10 -> 0.214286:(s'=29)+ 0.785714:(s'=30);
+ [] s=11 -> 1.0:(s'=31);
+ [] s=6 -> 1.0:(s'=32);
+ [] s=18 -> 1.0:(s'=4);
+ [] s=19 -> 1.0:(s'=7);
+ [] s=20 -> 1.0:(s'=13);
+ [] s=21 -> 1.0:(s'=8);
+ [] s=22 -> 1.0:(s'=10);
+ [] s=23 -> 1.0:(s'=2);
+ [] s=24 -> 1.0:(s'=4);
+ [] s=25 -> 1.0:(s'=12);
+ [] s=26 -> 1.0:(s'=6);
+ [] s=27 -> 1.0:(s'=2);
+ [] s=28 -> 1.0:(s'=5);
+ [] s=29 -> 1.0:(s'=3);
+ [] s=30 -> 1.0:(s'=11);
+ [] s=31 -> 1.0:(s'=4);
+ [] s=32 -> 1.0:(s'=16);
+ [] s=7 -> 1.0:(s'=7);
+ [] s=15 -> 1.0:(s'=15);
+ [] s=16 -> 1.0:(s'=16);
+ [] s=0 -> 1.0:(s'=0);
+ [] s=1 -> 1.0:(s'=1);
+ [] s=14 -> 1.0:(s'=14);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=9);
+ label "bot"= (s=2)|(s=12)|(s=5)|(s=13)|(s=3)|(s=4)|(s=8)|(s=9)|(s=10)|(s=11)|(s=6)|(s=7)|(s=15)|(s=16)|(s=0)|(s=1)|(s=14);
+ label "calculatecapacity"= (s=21)|(s=23)|(s=24)|(s=30);
+ label "accept"= (s=25);
+ label "checkcredit"= (s=18)|(s=22);
+ label "checksystem"= (s=20)|(s=27)|(s=29)|(s=31);
+ label "senddecisionemail"= (s=19)|(s=32);
+ label "registerapplication"= (s=28);
+ label "reject"= (s=26);
+
+ //Rewards
+ rewards "original_step"
+(s=2)|(s=12)|(s=5)|(s=13)|(s=3)|(s=4)|(s=8)|(s=9)|(s=10)|(s=11)|(s=6)|(s=7)|(s=15)|(s=16)|(s=0)|(s=1)|(s=14): 1;
+ endrewards
+
+ rewards "calculatecapacity"
+(s=21)|(s=23)|(s=24)|(s=30): 1;
+ endrewards
+
+ rewards "accept"
+(s=25): 1;
+ endrewards
+
+ rewards "checkcredit"
+(s=18)|(s=22): 1;
+ endrewards
+
+ rewards "checksystem"
+(s=20)|(s=27)|(s=29)|(s=31): 1;
+ endrewards
+
+ rewards "senddecisionemail"
+(s=19)|(s=32): 1;
+ endrewards
+
+ rewards "registerapplication"
+(s=28): 1;
+ endrewards
+
+ rewards "reject"
+(s=26): 1;
+ endrewards
+
+
+ //State Mapping
+ // s2 -> s2
+ // checkcredit.s4 -> s18
+ // s12 -> s12
+ // senddecisionemail.s7 -> s19
+ // s5 -> s5
+ // checksystem.s13 -> s20
+ // calculatecapacity.s8 -> s21
+ // checkcredit.s10 -> s22
+ // s13 -> s13
+ // calculatecapacity.s2 -> s23
+ // s3 -> s3
+ // calculatecapacity.s4 -> s24
+ // s4 -> s4
+ // accept.s12 -> s25
+ // reject.s6 -> s26
+ // s8 -> s8
+ // checksystem.s2 -> s27
+ // s9 -> s9
+ // registerapplication.s5 -> s28
+ // s10 -> s10
+ // checksystem.s3 -> s29
+ // calculatecapacity.s11 -> s30
+ // s11 -> s11
+ // checksystem.s4 -> s31
+ // s6 -> s6
+ // senddecisionemail.s16 -> s32
+ // s7 -> s7
+ // s15 -> s15
+ // s16 -> s16
+ // s0 -> s0
+ // s1 -> s1
+ // s14 -> s14

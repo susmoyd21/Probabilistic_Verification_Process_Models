@@ -1,0 +1,14 @@
+act b,d,c,e,a,f,NEWTRACESTARTING;
+
+proc s3 = b.s7 + e.s4 + c.s8 ;
+s7 = c.s4 ;
+s6 = d.s4 ;
+s4 = f.s9 ;
+s8 = b.s4 ;
+s2 = b.s6 + d.s8 ;
+s5 = a.s0 ;
+s0 = e.s6 + b.s1 + c.s2 + d.s3 ;
+s1 = c.s6 + d.s7 ;
+s9 = NEWTRACESTARTING.s5 ;
+init s5;
+

@@ -1,0 +1,113 @@
+
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..28] init 4;
+
+ [] s=0 -> 0.33168:(s'=13)+ 0.33584:(s'=14)+ 0.33248:(s'=15);
+ [] s=11 -> 0.509407:(s'=16)+ 0.490593:(s'=17);
+ [] s=1 -> 1.0:(s'=18);
+ [] s=4 -> 1.0:(s'=19);
+ [] s=5 -> 0.49552:(s'=20)+ 0.50448:(s'=21);
+ [] s=7 -> 1.0:(s'=22);
+ [] s=9 -> 1.0:(s'=5);
+ [] s=3 -> 1.0:(s'=23);
+ [] s=10 -> 0.497856:(s'=24)+ 0.502144:(s'=25);
+ [] s=2 -> 0.494225:(s'=26)+ 0.505775:(s'=27);
+ [] s=8 -> 1.0:(s'=28);
+ [] s=13 -> 1.0:(s'=11);
+ [] s=14 -> 1.0:(s'=10);
+ [] s=15 -> 1.0:(s'=2);
+ [] s=16 -> 1.0:(s'=1);
+ [] s=17 -> 1.0:(s'=8);
+ [] s=18 -> 1.0:(s'=9);
+ [] s=19 -> 1.0:(s'=0);
+ [] s=20 -> 1.0:(s'=7);
+ [] s=21 -> 1.0:(s'=7);
+ [] s=22 -> 1.0:(s'=6);
+ [] s=23 -> 1.0:(s'=9);
+ [] s=24 -> 1.0:(s'=3);
+ [] s=25 -> 1.0:(s'=8);
+ [] s=26 -> 1.0:(s'=3);
+ [] s=27 -> 1.0:(s'=1);
+ [] s=28 -> 1.0:(s'=9);
+ [] s=6 -> 1.0:(s'=6);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=4);
+ label "bot"= (s=0)|(s=11)|(s=1)|(s=4)|(s=5)|(s=7)|(s=9)|(s=3)|(s=10)|(s=2)|(s=8)|(s=6);
+ label "calculatecapacitycomplete"= (s=13)|(s=23)|(s=25)|(s=27);
+ label "checksystemcomplete"= (s=15)|(s=16)|(s=24)|(s=28);
+ label "registerapplicationcomplete"= (s=19);
+ label "acceptcomplete"= (s=20);
+ label "rejectcomplete"= (s=21);
+ label "checkcreditcomplete"= (s=14)|(s=17)|(s=18)|(s=26);
+ label "senddecisionemailcomplete"= (s=22);
+
+ //Rewards
+ rewards "original_step"
+(s=0)|(s=11)|(s=1)|(s=4)|(s=5)|(s=7)|(s=9)|(s=3)|(s=10)|(s=2)|(s=8)|(s=6): 1;
+ endrewards
+
+ rewards "calculatecapacitycomplete"
+(s=13)|(s=23)|(s=25)|(s=27): 1;
+ endrewards
+
+ rewards "checksystemcomplete"
+(s=15)|(s=16)|(s=24)|(s=28): 1;
+ endrewards
+
+ rewards "registerapplicationcomplete"
+(s=19): 1;
+ endrewards
+
+ rewards "acceptcomplete"
+(s=20): 1;
+ endrewards
+
+ rewards "rejectcomplete"
+(s=21): 1;
+ endrewards
+
+ rewards "checkcreditcomplete"
+(s=14)|(s=17)|(s=18)|(s=26): 1;
+ endrewards
+
+ rewards "senddecisionemailcomplete"
+(s=22): 1;
+ endrewards
+
+
+ //State Mapping
+ // s0 -> s0
+ // calculatecapacitycomplete.s11 -> s13
+ // checkcreditcomplete.s10 -> s14
+ // checksystemcomplete.s2 -> s15
+ // s11 -> s11
+ // checksystemcomplete.s1 -> s16
+ // checkcreditcomplete.s8 -> s17
+ // s1 -> s1
+ // checkcreditcomplete.s9 -> s18
+ // s4 -> s4
+ // registerapplicationcomplete.s0 -> s19
+ // s5 -> s5
+ // acceptcomplete.s7 -> s20
+ // rejectcomplete.s7 -> s21
+ // s7 -> s7
+ // senddecisionemailcomplete.s6 -> s22
+ // s9 -> s9
+ // s3 -> s3
+ // calculatecapacitycomplete.s9 -> s23
+ // s10 -> s10
+ // checksystemcomplete.s3 -> s24
+ // calculatecapacitycomplete.s8 -> s25
+ // s2 -> s2
+ // checkcreditcomplete.s3 -> s26
+ // calculatecapacitycomplete.s1 -> s27
+ // s8 -> s8
+ // checksystemcomplete.s9 -> s28
+ // s6 -> s6

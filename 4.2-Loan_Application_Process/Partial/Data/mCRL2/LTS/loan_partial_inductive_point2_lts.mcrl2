@@ -1,0 +1,17 @@
+act checksystem,checkcredit,calculatecapacity,accept,reject,registerapplication,senddecisionemail;
+
+proc s3 = checksystem.s10 + checkcredit.s4 ;
+s10 = checkcredit.s5 ;
+s4 = checksystem.s5 ;
+s5 = tau.s8 ;
+s0 = checksystem.s6 + checkcredit.s7 + calculatecapacity.s3 ;
+s6 = calculatecapacity.s10 + checkcredit.s11 ;
+s7 = checksystem.s11 + calculatecapacity.s4 ;
+s11 = calculatecapacity.s5 ;
+s8 = accept.s2 + reject.s2 ;
+s2 = senddecisionemail.s1 ;
+s9 = registerapplication.s0 ;
+s1 = tau.s1 ;
+
+init s9;
+

@@ -1,0 +1,18 @@
+act d,c,b,e,f,a,NEWTRACESTARTING;
+
+proc s1 = d.s6 + c.s11 ;
+s6 = c.s7 ;
+s12 = d.s10 + b.s11 ;
+s10 = b.s7 ;
+s3 = c.s12 + d.s9 + b.s1 ;
+s9 = c.s10 + b.s6 ;
+s2 = d.s5 + tau.s3 + e.s4 ;
+s5 = e.s0 + tau.s9 ;
+s11 = d.s7 + tau.s4 ;
+s0 = f.s13 ;
+s4 = d.s0 ;
+s8 = a.s2 ;
+s7 = tau.s0 ;
+s13 = NEWTRACESTARTING.s8 ;
+init s8;
+

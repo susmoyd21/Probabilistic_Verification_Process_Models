@@ -1,0 +1,114 @@
+
+ //Fitness of the model:90.0%
+ //Number of bad traces (unique bad traces) in the model:10 (3)
+ //Refer to the file loan_complete_inductive_point2_ubt.txt to view them.
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..27] init 4;
+
+ [] s=0 -> 0.022222:(s'=13)+ 0.911111:(s'=14)+ 0.066667:(s'=15);
+ [] s=11 -> 1.0:(s'=16);
+ [] s=1 -> 1.0:(s'=17);
+ [] s=4 -> 1.0:(s'=18);
+ [] s=5 -> 0.211111:(s'=19)+ 0.788889:(s'=20);
+ [] s=7 -> 1.0:(s'=21);
+ [] s=9 -> 1.0:(s'=5);
+ [] s=3 -> 1.0:(s'=22);
+ [] s=10 -> 0.463415:(s'=23)+ 0.536585:(s'=24);
+ [] s=2 -> 0.333333:(s'=25)+ 0.666667:(s'=26);
+ [] s=8 -> 1.0:(s'=27);
+ [] s=13 -> 1.0:(s'=11);
+ [] s=14 -> 1.0:(s'=10);
+ [] s=15 -> 1.0:(s'=2);
+ [] s=16 -> 1.0:(s'=1);
+ [] s=17 -> 1.0:(s'=9);
+ [] s=18 -> 1.0:(s'=0);
+ [] s=19 -> 1.0:(s'=7);
+ [] s=20 -> 1.0:(s'=7);
+ [] s=21 -> 1.0:(s'=6);
+ [] s=22 -> 1.0:(s'=9);
+ [] s=23 -> 1.0:(s'=3);
+ [] s=24 -> 1.0:(s'=8);
+ [] s=25 -> 1.0:(s'=3);
+ [] s=26 -> 1.0:(s'=1);
+ [] s=27 -> 1.0:(s'=9);
+ [] s=6 -> 1.0:(s'=6);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=4);
+ label "bot"= (s=0)|(s=11)|(s=1)|(s=4)|(s=5)|(s=7)|(s=9)|(s=3)|(s=10)|(s=2)|(s=8)|(s=6);
+ label "calculatecapacitycomplete"= (s=13)|(s=22)|(s=24)|(s=26);
+ label "checksystemcomplete"= (s=15)|(s=16)|(s=23)|(s=27);
+ label "registerapplicationcomplete"= (s=18);
+ label "acceptcomplete"= (s=19);
+ label "rejectcomplete"= (s=20);
+ label "checkcreditcomplete"= (s=14)|(s=17)|(s=25);
+ label "senddecisionemailcomplete"= (s=21);
+
+ //Rewards
+ rewards "original_step"
+(s=0)|(s=11)|(s=1)|(s=4)|(s=5)|(s=7)|(s=9)|(s=3)|(s=10)|(s=2)|(s=8)|(s=6): 1;
+ endrewards
+
+ rewards "calculatecapacitycomplete"
+(s=13)|(s=22)|(s=24)|(s=26): 1;
+ endrewards
+
+ rewards "checksystemcomplete"
+(s=15)|(s=16)|(s=23)|(s=27): 1;
+ endrewards
+
+ rewards "registerapplicationcomplete"
+(s=18): 1;
+ endrewards
+
+ rewards "acceptcomplete"
+(s=19): 1;
+ endrewards
+
+ rewards "rejectcomplete"
+(s=20): 1;
+ endrewards
+
+ rewards "checkcreditcomplete"
+(s=14)|(s=17)|(s=25): 1;
+ endrewards
+
+ rewards "senddecisionemailcomplete"
+(s=21): 1;
+ endrewards
+
+
+ //State Mapping
+ // s0 -> s0
+ // calculatecapacitycomplete.s11 -> s13
+ // checkcreditcomplete.s10 -> s14
+ // checksystemcomplete.s2 -> s15
+ // s11 -> s11
+ // checksystemcomplete.s1 -> s16
+ // s1 -> s1
+ // checkcreditcomplete.s9 -> s17
+ // s4 -> s4
+ // registerapplicationcomplete.s0 -> s18
+ // s5 -> s5
+ // acceptcomplete.s7 -> s19
+ // rejectcomplete.s7 -> s20
+ // s7 -> s7
+ // senddecisionemailcomplete.s6 -> s21
+ // s9 -> s9
+ // s3 -> s3
+ // calculatecapacitycomplete.s9 -> s22
+ // s10 -> s10
+ // checksystemcomplete.s3 -> s23
+ // calculatecapacitycomplete.s8 -> s24
+ // s2 -> s2
+ // checkcreditcomplete.s3 -> s25
+ // calculatecapacitycomplete.s1 -> s26
+ // s8 -> s8
+ // checksystemcomplete.s9 -> s27
+ // s6 -> s6

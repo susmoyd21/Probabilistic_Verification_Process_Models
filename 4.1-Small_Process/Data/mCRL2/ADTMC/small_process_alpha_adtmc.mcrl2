@@ -1,0 +1,14 @@
+act b,d,c,e,a,f;
+
+proc s3 = dist b1:Bool[if(b1,1,0)].(b1->e.s4);
+s7 = dist b2:Bool[if(b2,1,0)].(b2->c.s4);
+s6 = dist b3:Bool[if(b3,1,0)].(b3->d.s4);
+s4 = dist b4:Bool[if(b4,1,0)].(b4->f.s9);
+s8 = dist b5:Bool[if(b5,1,0)].(b5->b.s4);
+s2 = dist b6:Bool[if(b6,1/2,1/2)].(b6->b.s6 + !b6->d.s8);
+s5 = dist b7:Bool[if(b7,1,0)].(b7->a.s0);
+s0 = dist n8:Pos[if(n8==1,1667/10000,if(n8==2,3333/10000,if(n8==3,3333/10000,if(n8==4,1667/10000,0))))].((n8==1)->e.s6+(n8==2)->b.s1+(n8==3)->c.s2+(n8==4)->d.s3);
+s1 = dist b9:Bool[if(b9,1/2,1/2)].(b9->c.s6 + !b9->d.s7);
+s9 = dist b10:Bool[if(b10,1,0)].(b10->tau.s9);
+init s5;
+

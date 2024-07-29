@@ -1,0 +1,16 @@
+act calculatecapacitycomplete,checksystemcomplete,registerapplicationcomplete,acceptcomplete,rejectcomplete,checkcreditcomplete,senddecisionemailcomplete,NEWTRACESTARTING;
+
+proc s0 = calculatecapacitycomplete.s11 + checkcreditcomplete.s10 + checksystemcomplete.s2 ;
+s11 = checksystemcomplete.s1 + checkcreditcomplete.s8 ;
+s1 = checkcreditcomplete.s9 ;
+s4 = registerapplicationcomplete.s0 ;
+s5 = acceptcomplete.s7 + rejectcomplete.s7 ;
+s7 = senddecisionemailcomplete.s6 ;
+s9 = tau.s5 ;
+s3 = calculatecapacitycomplete.s9 ;
+s10 = checksystemcomplete.s3 + calculatecapacitycomplete.s8 ;
+s2 = checkcreditcomplete.s3 + calculatecapacitycomplete.s1 ;
+s8 = checksystemcomplete.s9 ;
+s6 = NEWTRACESTARTING.s4 ;
+init s4;
+
