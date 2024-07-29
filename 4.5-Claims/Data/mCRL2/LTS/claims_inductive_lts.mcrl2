@@ -1,0 +1,18 @@
+act checkifsufficientinformationisavailable,registerclaim,adviseclaimantonreimbursement,assessclaim,closeclaim,end,initiatepayment,determinelikelihoodofclaim;
+
+proc s11 = checkifsufficientinformationisavailable.s3 ;
+s3 = registerclaim.s9 + tau.s5 ;
+s9 = determinelikelihoodofclaim.s4 ;
+s7 = tau.s0 + tau.s5 ;
+s0 = adviseclaimantonreimbursement.s6 + initiatepayment.s10 ;
+s12 = tau.s5 ;
+s5 = end.s2 ;
+s10 = adviseclaimantonreimbursement.s1 + closeclaim.s8 ;
+s1 = closeclaim.s12 ;
+s8 = adviseclaimantonreimbursement.s12 ;
+s4 = tau.s7 + assessclaim.s7 ;
+s2 = tau.s2 ;
+
+s6 = initiatepayment.s1 ;
+init s11;
+

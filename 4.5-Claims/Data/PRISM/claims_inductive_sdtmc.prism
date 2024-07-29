@@ -1,0 +1,113 @@
+
+ //Fitness of the model:100.0%
+
+ dtmc 
+	 module ats_ADTMC 
+
+ //Variables
+s:[0..25] init 11;
+
+ [] s=11 -> 1.0:(s'=14);
+ [] s=3 -> 0.871212:(s'=15)+ 0.128788:(s'=5);
+ [] s=9 -> 1.0:(s'=16);
+ [] s=7 -> 0.66087:(s'=0)+ 0.33913:(s'=5);
+ [] s=0 -> 0.631579:(s'=17)+ 0.368421:(s'=18);
+ [] s=12 -> 1.0:(s'=5);
+ [] s=5 -> 1.0:(s'=19);
+ [] s=10 -> 0.535714:(s'=20)+ 0.464286:(s'=21);
+ [] s=1 -> 1.0:(s'=22);
+ [] s=8 -> 1.0:(s'=23);
+ [] s=4 -> 0.13913:(s'=7)+ 0.86087:(s'=24);
+ [] s=6 -> 1.0:(s'=25);
+ [] s=14 -> 1.0:(s'=3);
+ [] s=15 -> 1.0:(s'=9);
+ [] s=16 -> 1.0:(s'=4);
+ [] s=17 -> 1.0:(s'=6);
+ [] s=18 -> 1.0:(s'=10);
+ [] s=19 -> 1.0:(s'=2);
+ [] s=20 -> 1.0:(s'=1);
+ [] s=21 -> 1.0:(s'=8);
+ [] s=22 -> 1.0:(s'=12);
+ [] s=23 -> 1.0:(s'=12);
+ [] s=24 -> 1.0:(s'=7);
+ [] s=25 -> 1.0:(s'=1);
+ [] s=2 -> 1.0:(s'=2);
+
+	 endmodule 
+
+ //Labels
+ label "Initial" = (s=11);
+ label "bot"= (s=11)|(s=3)|(s=9)|(s=7)|(s=0)|(s=12)|(s=5)|(s=10)|(s=1)|(s=8)|(s=4)|(s=6)|(s=2);
+ label "checkifsufficientinformationisavailable"= (s=14);
+ label "registerclaim"= (s=15);
+ label "adviseclaimantonreimbursement"= (s=17)|(s=20)|(s=23);
+ label "assessclaim"= (s=24);
+ label "closeclaim"= (s=21)|(s=22);
+ label "end"= (s=19);
+ label "initiatepayment"= (s=18)|(s=25);
+ label "determinelikelihoodofclaim"= (s=16);
+
+ //Rewards
+ rewards "original_step"
+(s=11)|(s=3)|(s=9)|(s=7)|(s=0)|(s=12)|(s=5)|(s=10)|(s=1)|(s=8)|(s=4)|(s=6)|(s=2): 1;
+ endrewards
+
+ rewards "checkifsufficientinformationisavailable"
+(s=14): 1;
+ endrewards
+
+ rewards "registerclaim"
+(s=15): 1;
+ endrewards
+
+ rewards "adviseclaimantonreimbursement"
+(s=17)|(s=20)|(s=23): 1;
+ endrewards
+
+ rewards "assessclaim"
+(s=24): 1;
+ endrewards
+
+ rewards "closeclaim"
+(s=21)|(s=22): 1;
+ endrewards
+
+ rewards "end"
+(s=19): 1;
+ endrewards
+
+ rewards "initiatepayment"
+(s=18)|(s=25): 1;
+ endrewards
+
+ rewards "determinelikelihoodofclaim"
+(s=16): 1;
+ endrewards
+
+
+ //State Mapping
+ // s11 -> s11
+ // checkifsufficientinformationisavailable.s3 -> s14
+ // s3 -> s3
+ // registerclaim.s9 -> s15
+ // s9 -> s9
+ // determinelikelihoodofclaim.s4 -> s16
+ // s7 -> s7
+ // s0 -> s0
+ // adviseclaimantonreimbursement.s6 -> s17
+ // initiatepayment.s10 -> s18
+ // s12 -> s12
+ // s5 -> s5
+ // end.s2 -> s19
+ // s10 -> s10
+ // adviseclaimantonreimbursement.s1 -> s20
+ // closeclaim.s8 -> s21
+ // s1 -> s1
+ // closeclaim.s12 -> s22
+ // s8 -> s8
+ // adviseclaimantonreimbursement.s12 -> s23
+ // s4 -> s4
+ // assessclaim.s7 -> s24
+ // s6 -> s6
+ // initiatepayment.s1 -> s25
+ // s2 -> s2

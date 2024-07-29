@@ -1,0 +1,10 @@
+LCOT=0 for Alpha
+
+LCOT=0 for Inductive
+
+end_event=['end'] for Alpha
+
+end_event=['end'] for Inductive
+
+Alpha Miner does not have the 'end' transition at all.
+

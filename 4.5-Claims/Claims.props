@@ -1,0 +1,12 @@
+P=? [ ("checkifsufficientinformationisavailable"|"bot") U ("end") ]
+
+P=? [ (!("assessclaim")) U ((!("bot"))&("end"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (true) U (("registerclaim"))&(!("assessclaim")U("end")) ]
+
+P=? [ (!("initiatepayment")) U ((!("bot"))&("end"))&(P>=1 [ X ("bot") ]) ]
+
+P=? [ (true) U (("initiatepayment"))&(!("adviseclaimantonreimbursement")U("end")) ]
+
+P=?[true U ("adviseclaimantonreimbursement"&(true U ("initiatepayment" & (true U ("end")))))]
+

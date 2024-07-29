@@ -1,0 +1,27 @@
+.model StateSpace_.00of_.003f5b33ed_.015651_.014cc6_.01a848_.01210a5a927518
+.dummy a b tau_.00join c tau_.00split d e f
+.state graph
+s1 d s6
+s12 d s10
+s3 c s12
+s9 c s10
+s2 d s5
+s12 b s11
+s5 e s0
+s4 d s0
+s9 b s6
+s0 f s13
+s8 a s2
+s11 d s7
+s1 c s11
+s2 tau_.00split s3
+s5 tau_.00split s9
+s11 tau_.00join s4
+s7 tau_.00join s0
+s6 c s7
+s3 d s9
+s10 b s7
+s3 b s1
+s2 e s4
+.marking { s8 }
+.end

@@ -1,0 +1,17 @@
+act checkifsufficientinformationisavailable,registerclaim,adviseclaimantonreimbursement,assessclaim,closeclaim,end,initiatepayment,determinelikelihoodofclaim,NEWTRACESTARTING;
+
+proc s11 = dist b1:Bool[if(b1,1,0)].(b1->checkifsufficientinformationisavailable.s3);
+s3 = dist b2:Bool[if(b2,999/2000,1001/2000)].(b2->registerclaim.s9 + !b2->tau.s5);
+s9 = dist b3:Bool[if(b3,1,0)].(b3->determinelikelihoodofclaim.s4);
+s7 = dist b4:Bool[if(b4,5093/10000,4907/10000)].(b4->tau.s0 + !b4->tau.s5);
+s0 = dist b5:Bool[if(b5,4913/10000,5087/10000)].(b5->adviseclaimantonreimbursement.s6 + !b5->initiatepayment.s10);
+s12 = dist b6:Bool[if(b6,1,0)].(b6->tau.s5);
+s5 = dist b7:Bool[if(b7,1,0)].(b7->end.s2);
+s10 = dist b8:Bool[if(b8,603/1250,647/1250)].(b8->adviseclaimantonreimbursement.s1 + !b8->closeclaim.s8);
+s1 = dist b9:Bool[if(b9,1,0)].(b9->closeclaim.s12);
+s8 = dist b10:Bool[if(b10,1,0)].(b10->adviseclaimantonreimbursement.s12);
+s4 = dist b11:Bool[if(b11,2597/5000,2403/5000)].(b11->tau.s7 + !b11->assessclaim.s7);
+s6 = dist b12:Bool[if(b12,1,0)].(b12->initiatepayment.s1);
+s2 = dist b13:Bool[if(b13,1,0)].(b13->tau.s2);
+init s11;
+

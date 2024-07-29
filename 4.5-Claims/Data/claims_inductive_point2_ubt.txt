@@ -1,0 +1,15 @@
+
+ Total Traces in the file:	132
+ Number of Good Traces in the file:	99
+ Number of Bad Traces in the file:	33
+ Number of Unique Bad Trace Types in the file:	2
+
+ Fitness of Model w.r.t. traces it can simulate:	75.0% 
+
+
+ Sl No. 	 Bad trace 	 Frequency
+
+1. checkifsufficientinformationisavailable->end	17
+2. checkifsufficientinformationisavailable->registerclaim->determinelikelihoodofclaim->end	16
+
+ Total Number of Unsimulated Traces:	0

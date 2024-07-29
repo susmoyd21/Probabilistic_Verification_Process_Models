@@ -1,0 +1,18 @@
+act enda,initiatepayment,determinelikelihoodofclaim,closeclaim,adviseclaimantonreimbursement,checkifsufficientinformationisavailable,registerclaim,assessclaim;
+
+proc s5 = enda.s2 ;
+s2 = tau.s2 ;
+
+s4 = tau.s5 ;
+s0 = initiatepayment.s11 + adviseclaimantonreimbursement.s12 ;
+s11 = adviseclaimantonreimbursement.s1 + closeclaim.s9 ;
+s3 = determinelikelihoodofclaim.s7 ;
+s7 = assessclaim.s8 ;
+s1 = closeclaim.s4 ;
+s12 = initiatepayment.s1 ;
+s10 = checkifsufficientinformationisavailable.s6 ;
+s6 = registerclaim.s3 ;
+s9 = adviseclaimantonreimbursement.s4 ;
+s8 = tau.s5 + tau.s0 ;
+init s10;
+
